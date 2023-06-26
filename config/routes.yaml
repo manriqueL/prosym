@@ -1,0 +1,7 @@
+tareas:
+    path: /tareas
+    controller: App\Controller\TareaController::index
+
+registro:
+    path: /registro
+    controller: App\Controller\UsuarioController::registro
