@@ -12,19 +12,19 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class FormRegistro extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $opciones){
         $builder->add('name', TextType::class, array(
-            'label' => 'Name'
+            'label' => 'Name:'
         ))
         
         ->add('lastName', TextType::class, array(
-            'label' => 'Last Name'
+            'label' => 'Last Name:'
         ))
 
         ->add('Email', EmailType::class, array(
-            'label' => 'Email'
+            'label' => 'Email:'
         ))
 
         ->add('password', PasswordType::class, array(
-            'label' => 'Password'
+            'label' => 'Password:'
         ))
 
         ->add('Register', SubmitType::class, array(

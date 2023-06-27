@@ -7,12 +7,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Usuario;
-
 use App\Form\FormRegistro;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+class UsuarioController extends AbstractController{
 
-class UsuarioController extends AbstractController
-{
 
     public function registro(Request $request, UserPasswordEncoderInterface $encoder)
     {   //Crea el formulario
@@ -44,4 +43,16 @@ class UsuarioController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-}
+
+    public function login(AuthenticationUtils $AuthenticationUtils){
+        $error =$AuthenticationUtils->getLastAuthenticationError();
+
+        $lastUsername = $AuthenticationUtils->getLastUsername();
+
+        return $this->render('usuario/login.html.twig', array(
+            'error' => $error,
+            'lastUsername' => $lastUsername
+        ));
+    
+        }
+    }

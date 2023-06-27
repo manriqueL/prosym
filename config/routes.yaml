@@ -5,3 +5,11 @@ tareas:
 registro:
     path: /registro
     controller: App\Controller\UsuarioController::registro
+
+login:
+    path: /login
+    controller: App\Controller\UsuarioController::login
+
+logout:
+    path: /logout
+
