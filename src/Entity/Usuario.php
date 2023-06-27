@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Usuario
  *
@@ -35,6 +35,8 @@ class Usuario implements UserInterface
      * @var string|null
      *
      * @ORM\Column(name="name", type="string", length=100, nullable=true, options={"default"="NULL"})
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-Z ]+/")
      */
     private $name = 'NULL';
 
@@ -42,6 +44,8 @@ class Usuario implements UserInterface
      * @var string|null
      *
      * @ORM\Column(name="lastname", type="string", length=100, nullable=true, options={"default"="NULL"})
+     * @Assert\NotBlank
+     * @Assert\Regex("/[a-zA-Z ]+/")
      */
     private $lastname = 'NULL';
 
@@ -49,6 +53,10 @@ class Usuario implements UserInterface
      * @var string|null
      *
      * @ORM\Column(name="email", type="string", length=150, nullable=true, options={"default"="NULL"})
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *      message = "El Email '{{ value }}' es invalido "
+     * )
      */
     private $email = 'NULL';
 
@@ -56,6 +64,7 @@ class Usuario implements UserInterface
      * @var string|null
      *
      * @ORM\Column(name="password", type="string", length=100, nullable=true, options={"default"="NULL"})
+     * @Assert\NotBlank
      */
     private $password = 'NULL';
 

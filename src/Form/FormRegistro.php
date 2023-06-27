@@ -14,15 +14,19 @@ class FormRegistro extends AbstractType{
         $builder->add('name', TextType::class, array(
             'label' => 'Name'
         ))
+        
         ->add('lastName', TextType::class, array(
-            'label' => 'lastName'
+            'label' => 'Last Name'
         ))
+
         ->add('Email', EmailType::class, array(
             'label' => 'Email'
         ))
+
         ->add('password', PasswordType::class, array(
-            'label' => 'password'
+            'label' => 'Password'
         ))
+
         ->add('Register', SubmitType::class, array(
             'label' => 'Register'
         ))
