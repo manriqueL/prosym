@@ -3,4 +3,7 @@
 {% block title %}Tareas!{% endblock %}
 
 {% block body %}
+    {% if app.user %}
+        {{ dump(app.user) }}
+    {% endif %}
 {% endblock %}

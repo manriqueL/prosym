@@ -55,7 +55,8 @@ class Usuario implements UserInterface
      * @ORM\Column(name="email", type="string", length=150, nullable=true, options={"default"="NULL"})
      * @Assert\NotBlank
      * @Assert\Email(
-     *      message = "El Email '{{ value }}' es invalido "
+     *      message = "El Email '{{ value }}' es invalido",
+
      * )
      */
     private $email = 'NULL';

@@ -24,12 +24,12 @@ class TareaController extends AbstractController
         $usuarioRepo = $this->getDoctrine()->getRepository(Usuario::class);
         $usuarios = $usuarioRepo->findAll();
 
-        // foreach ($usuarios as $usuario) {
-        //     echo '<h1>'.$usuario->getName()." - ".$usuario->getLastName().'</h1>';
-        //     foreach ($usuario->getTareas() as $tarea) {
-        //         echo $tarea->getTittle().'<br/>';
-        //     }
-        // }
+        foreach ($usuarios as $usuario) {
+            echo '<h1>'.$usuario->getName()." - ".$usuario->getLastName().'</h1>';
+            foreach ($usuario->getTareas() as $tarea) {
+                echo $tarea->getTittle().'<br/>';
+            }
+        }
         return $this->render('tarea/index.html.twig', [
             'controller_name' => 'TareaController',
         ]);

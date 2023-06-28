@@ -1,5 +1,5 @@
 tareas:
-    path: /tareas
+    path: /
     controller: App\Controller\TareaController::index
 
 registro:

@@ -10,8 +10,8 @@ use App\Entity\Usuario;
 use App\Form\FormRegistro;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-class UsuarioController extends AbstractController{
 
+class UsuarioController extends AbstractController{
 
     public function registro(Request $request, UserPasswordEncoderInterface $encoder)
     {   //Crea el formulario
@@ -44,15 +44,13 @@ class UsuarioController extends AbstractController{
         ]);
     }
 
-    public function login(AuthenticationUtils $AuthenticationUtils){
-        $error =$AuthenticationUtils->getLastAuthenticationError();
-
-        $lastUsername = $AuthenticationUtils->getLastUsername();
+    public function login(AuthenticationUtils $AutenticationUtils){
+        $error =$AutenticationUtils->getLastAuthenticationError();
+        $lastUsername = $AutenticationUtils->getLastUsername();
 
         return $this->render('usuario/login.html.twig', array(
             'error' => $error,
-            'lastUsername' => $lastUsername
+            'last_username' => $lastUsername
         ));
-    
         }
     }
